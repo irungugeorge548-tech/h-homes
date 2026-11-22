@@ -1,0 +1,55 @@
+// One consistent line-icon set (replaces the emoji used before).
+const P = {
+  motorcycle: (<><circle cx="5.5" cy="16.5" r="3" /><circle cx="18.5" cy="16.5" r="3" /><path d="M5.5 16.5L9 10h5l4.500 6.500M14 10l2-3h2.500M8 10l-1.500-2H4" /></>),
+  car: (<><path d="M3 14l2-5a2 2 0 0 1 2-1.500h10a2 2 0 0 1 2 1.500l2 5v4H3v-4z" /><path d="M3 14h18" /><circle cx="7.500" cy="17.500" r="1.600" /><circle cx="16.500" cy="17.500" r="1.600" /></>),
+  package: (<><path d="M4 8l8-4 8 4v8l-8 4-8-4V8z" /><path d="M4 8l8 4 8-4M12 12v8" /></>),
+  calendar: (<><rect x="3.500" y="5" width="17" height="15" rx="2" /><path d="M3.500 10h17M8 3v4M16 3v4" /></>),
+  eye: (<><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></>),
+  eyeoff: (<><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" /><path d="M4 4l16 16" /></>),
+  receipt: (<><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z" /><path d="M9 8h6M9 12h6" /></>),
+  menu: <path d="M4 7h16M4 12h16M4 17h16" />,
+  bell: (<><path d="M6 17V11a6 6 0 0 1 12 0v6l1.500 2h-15L6 17z" /><path d="M10 21a2 2 0 0 0 4 0" /></>),
+  locate: (<><circle cx="12" cy="12" r="3.500" /><path d="M12 2v4M12 18v4M2 12h4M18 12h4" /><circle cx="12" cy="12" r="8" /></>),
+  bolt: <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />,
+  star: <path d="M12 3l2.700 5.600 6.100.9-4.400 4.300 1 6.100L12 17l-5.400 2.900 1-6.100L3.200 9.500l6.100-.9L12 3z" />,
+  home: <path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9z" />,
+  work: (<><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18" /></>),
+  more: (<><circle cx="5" cy="12" r="1.200" /><circle cx="12" cy="12" r="1.200" /><circle cx="19" cy="12" r="1.200" /></>),
+  clock: (<><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>),
+  shield: (<><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6l8-3z" /><path d="M8.500 12l2.500 2.500 4.500-5" /></>),
+  close: <path d="M6 6l12 12M18 6L6 18" />,
+  arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
+  back: <path d="M15 5l-7 7 7 7" />,
+  chev: <path d="M9 5l7 7-7 7" />,
+  check: <path d="M5 12.500l4.500 4.500L19 7.500" />,
+  pin: (<><path d="M12 21s-7-6.200-7-11.500a7 7 0 0 1 14 0C19 14.800 12 21 12 21z" /><circle cx="12" cy="9.500" r="2.500" /></>),
+  search: (<><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></>),
+  user: (<><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.400 3.600-7 8-7s8 2.600 8 7" /></>),
+  wallet: (<><path d="M3 7a2 2 0 0 1 2-2h13v4" /><rect x="3" y="7" width="18" height="13" rx="2" /><circle cx="16.500" cy="13.500" r="1.200" /></>),
+  chat: <path d="M4 5h16v11H9l-5 4V5z" />,
+  gear: (<><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M4.200 4.200l2.100 2.100M17.700 17.700l2.100 2.100M2 12h3M19 12h3M4.200 19.800l2.100-2.100M17.700 6.300l2.100-2.100" /></>),
+  phone: <path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />,
+  bag: (<><path d="M5 8h14l-1 12H6L5 8z" /><path d="M9 8a3 3 0 0 1 6 0" /></>),
+  trash: (<><path d="M4 7h16M10 7V4h4v3M6 7l1 13h10l1-13" /></>),
+  plus: <path d="M12 5v14M5 12h14" />,
+  map: (<><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z" /><path d="M9 4v14M15 6v14" /></>),
+  share: (<><circle cx="6" cy="12" r="2.500" /><circle cx="18" cy="6" r="2.500" /><circle cx="18" cy="18" r="2.500" /><path d="M8.200 10.800l7.600-3.600M8.200 13.200l7.600 3.600" /></>),
+  alert: (<><path d="M12 3l10 18H2L12 3z" /><path d="M12 10v5M12 18v.1" /></>),
+  download: <path d="M12 4v12M6 11l6 6 6-6M5 20h14" />,
+  key: (<><circle cx="8" cy="14" r="4" /><path d="M11 11l9-9M16 6l3 3M14 8l2 2" /></>),
+  bed: (<><path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5" /><circle cx="7" cy="11" r="1.500" /></>),
+  heart: <path d="M12 20s-8-5-8-11a4.500 4.500 0 0 1 8-2.800A4.500 4.500 0 0 1 20 9c0 6-8 11-8 11z" />,
+  building: (<><rect x="5" y="3" width="14" height="18" rx="1" /><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 21v-4h4v4" /></>),
+  money: (<><rect x="3" y="6" width="18" height="12" rx="2" /><circle cx="12" cy="12" r="2.500" /></>),
+  people: (<><circle cx="9" cy="8" r="3.500" /><path d="M2 20c0-3.500 3-6 7-6s7 2.500 7 6M16 4.500a3.500 3.500 0 0 1 0 7M18 14c2.500.7 4 2.700 4 6" /></>),
+  camera: (<><path d="M4 8h3l2-3h6l2 3h3v11H4V8z" /><circle cx="12" cy="13" r="3.500" /></>),
+  tool: <path d="M14.500 6.500a4 4 0 0 0-5 5L3 18l3 3 6.500-6.500a4 4 0 0 0 5-5l-3 3-2.500-.5-.5-2.500 3-3z" />,
+  lock: (<><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></>),
+}
+
+export default function Icon({ name, size = 24, stroke = 1.8, className = '', fill = false }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={fill ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth={stroke}
+      strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">{P[name]}</svg>
+  )
+}

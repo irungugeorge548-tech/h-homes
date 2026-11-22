@@ -1,0 +1,6 @@
+// Runs the pretend H-Pesa on port 5010 with two ready wallets (for trying the screens by hand)
+const { createStub } = require('./stubHpesa')
+const s = createStub({ key: 'hpk_test_key' })
+s.users.set('0711000111', { id: 'a', name: 'Lena Landlord', phone: '0711000111', email: 'l@t', password: 'pass1234', pin: '1111', balance: 500 })
+s.users.set('0722000222', { id: 'b', name: 'Tom Tenant', phone: '0722000222', email: 't@t', password: 'pass1234', pin: '2222', balance: 50000 })
+s.app.listen(5010, () => console.log('stub H-Pesa on 5010'))

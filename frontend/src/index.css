@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body { @apply bg-gray-100; margin: 0; }
+.leaflet-container { height: 100%; width: 100%; }
+
+/* --- mascot animation --- */
+.mamba .wheel-l, .mamba .wheel-s { transform-box: view-box; }
+.mamba-ride .wheel-l { animation: spin 3.2s linear infinite; transform-origin: 0 0; transform-box: fill-box; transform-origin: center; }
+.mamba-ride .wheel-s { animation: spin 1.1s linear infinite; transform-origin: center; transform-box: fill-box; }
+.mamba-ride .rider { animation: bob 0.8s ease-in-out infinite; transform-origin: 130px 80px; }
+.mamba-ride .tongue { animation: flick 1.4s ease-in-out infinite; transform-origin: 26px 0; transform-box: fill-box; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes flick { 0%,70%,100% { transform: scaleX(1); opacity: 1; } 80% { transform: scaleX(0.3); opacity: .6; } 90% { transform: scaleX(1.1); } }
+@keyframes cruise { from { transform: translateX(-70px); } to { transform: translateX(calc(100vw + 10px)); } }
+@media (prefers-reduced-motion: reduce) { .mamba-ride * { animation: none !important; } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px) scale(.96); } to { opacity: 1; transform: none; } }
+.maplibregl-map { font-family: inherit; }
+.mamba-ride .cape { animation: flutter 0.5s ease-in-out infinite; transform-origin: 108px 62px; }
+@keyframes flutter { 0%,100% { transform: skewY(0deg) scaleX(1); } 50% { transform: skewY(-6deg) scaleX(.92); } }
+
+.mamba .wheel { transform-box: fill-box; transform-origin: center; }
+.mamba-ride .wheel { animation: spin .7s linear infinite; }
+.mamba-ride .speed { animation: dash .5s linear infinite; }
+@keyframes dash { from { transform: translateX(0); opacity:.7 } to { transform: translateX(-14px); opacity:0 } }
+
+/* --- H-Homes mascot --- */
+.hh .hh-house { transform-box: fill-box; transform-origin: 50% 100%; }
+.hh-ride .hh-house { animation: hhbob .7s ease-in-out infinite; }
+.hh-ride .hh-shadow { animation: hhshadow .7s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.hh-ride .speed { animation: dash .5s linear infinite; }
+.hh .hh-key { transform-box: view-box; transform-origin: 186px 150px; }
+.hh-ride .hh-key { animation: hhswing 1.2s ease-in-out infinite; }
+@keyframes hhbob { 0%,100% { transform: translateY(0) scale(1,1); } 50% { transform: translateY(-5px) scale(.99,1.02); } }
+@keyframes hhshadow { 0%,100% { transform: scaleX(1); opacity:.18 } 50% { transform: scaleX(.9); opacity:.1 } }
+@keyframes hhswing { 0%,100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }
+@media (prefers-reduced-motion: reduce) { .hh-ride * { animation: none !important; } }

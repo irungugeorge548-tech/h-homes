@@ -1,0 +1,132 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// One H-Homes account can be a tenant, a landlord, or both. hpesaPhone is the optional H-Pesa wallet link.
+model User {
+  id         String   @id @default(cuid())
+  name       String
+  phone      String   @unique
+  email      String?  @unique
+  password   String
+  hpesaPhone String?
+  photo      String?  @db.MediumText
+  termsAcceptedAt DateTime?
+  createdAt  DateTime @default(now())
+}
+
+model Home {
+  id          String   @id @default(cuid())
+  ownerId     String
+  title       String
+  area        String
+  address     String?
+  description String?  @db.Text
+  type        String   @default("APARTMENT") // BEDSITTER, STUDIO, APARTMENT, HOUSE, MAISONETTE
+  bedrooms    Int      @default(1)
+  rent        Float
+  deposit     Float    @default(0)
+  amenities   String?  @db.Text // comma separated
+  status      String   @default("AVAILABLE") // AVAILABLE, OCCUPIED, HIDDEN
+  createdAt   DateTime @default(now())
+
+  @@index([ownerId])
+  @@index([status])
+}
+
+model HomePhoto {
+  id        String   @id @default(cuid())
+  homeId    String
+  data      String   @db.MediumText // a small resized picture as a data URL
+  position  Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([homeId])
+}
+
+model Application {
+  id            String   @id @default(cuid())
+  homeId        String
+  applicantId   String
+  applicantName String
+  applicantPhone String
+  message       String?  @db.Text
+  status        String   @default("PENDING") // PENDING, APPROVED, DECLINED, WITHDRAWN
+  createdAt     DateTime @default(now())
+
+  @@index([homeId])
+  @@index([applicantId])
+}
+
+model Tenancy {
+  id         String   @id @default(cuid())
+  homeId     String
+  ownerId    String
+  tenantId   String
+  tenantName String
+  tenantPhone String
+  startDate  DateTime @default(now())
+  dueDay     Int      @default(5)
+  rentAmount Float
+  status     String   @default("ACTIVE") // ACTIVE, ENDED
+  createdAt  DateTime @default(now())
+
+  @@index([homeId])
+  @@index([tenantId])
+  @@index([ownerId])
+}
+
+model RentPayment {
+  id         String   @id @default(cuid())
+  tenancyId  String
+  payerId    String
+  amount     Float
+  reference  String   @unique
+  status     String   @default("PENDING") // PENDING, COMPLETED, FAILED
+  failReason String?  @db.Text
+  createdAt  DateTime @default(now())
+
+  @@index([tenancyId])
+}
+
+model Favourite {
+  id        String   @id @default(cuid())
+  userId    String
+  homeId    String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, homeId])
+}
+
+model Maintenance {
+  id        String   @id @default(cuid())
+  tenancyId String
+  homeId    String
+  ownerId   String
+  tenantId  String
+  title     String
+  detail    String?  @db.Text
+  status    String   @default("OPEN") // OPEN, IN_PROGRESS, DONE
+  createdAt DateTime @default(now())
+
+  @@index([tenancyId])
+  @@index([ownerId])
+}
+
+model SupportMessage {
+  id        String   @id @default(cuid())
+  userId    String
+  userName  String?
+  userPhone String?
+  subject   String
+  message   String @db.Text
+  status    String   @default("OPEN")
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
